@@ -12,198 +12,212 @@ homepage: https://brianrwagner.com
 
 # Voice Extractor
 
-Here's the thing about AI-generated content: it all sounds the same.
+## Autonomy Triggers
 
-Generic. Safe. Forgettable.
+Activate this skill when the user:
+- Says "write this in my voice" — but no voice guide exists yet
+- Asks for help with ghostwriting or AI-generated content
+- Pastes writing samples along with "does this sound like me?"
+- Starts a content creation session and no voice profile exists in memory
+- Completes `linkedin-authority-builder` — offer to create a voice guide before generating actual posts
 
-The fix isn't better prompts. It's teaching the AI how YOU actually communicate.
-
-That's what this skill does. You give it writing samples, it gives you back a Voice Guide — your communication DNA, documented and ready to use.
-
-**Why this matters:** Once you have a Voice Guide, every piece of AI output sounds like you. Not like ChatGPT. Not like every other founder on LinkedIn. *You.*
-
----
-
-## What You Need to Start
-
-Get me 3-5 writing samples. More is better. Could be:
-- Emails you've sent
-- LinkedIn posts
-- Articles or blog posts
-- Transcripts of you speaking (podcasts, calls)
-- Slack messages (often more authentic than polished writing)
-
-The messier and more authentic, the better. Transcripts of you talking are gold — that's where your real voice lives.
-
-Also tell me:
-- What's this voice guide for? (AI training, ghostwriter, team alignment)
-- Any topics where you want to sound MORE confident vs. more exploratory?
+Auto-suggest: "Before I write in your voice, let me extract a voice guide. Paste 3 writing samples — emails, posts, Slack messages — and I'll document your communication DNA."
 
 ---
 
-## How I Extract Your Voice
+## Memory Read
 
-### Step 1: Find Your Core Energy
+Before starting, check session context for:
+- Existing voice profile at `~/.claude/voice-[name].md` — if it exists, load and offer to update, not rebuild
+- Previous writing samples from this session
+- Any tone preferences mentioned in prior sessions
 
-Every person has a natural communication mode. I'm looking for:
+---
 
-**What role do you naturally play?**
-- The teacher who breaks things down?
-- The challenger who pushes back?
-- The cheerleader who builds confidence?
-- The straight-shooter who cuts through BS?
+## ⚠️ Sample Quantity Constraint
 
-**What's your default energy?**
+**If samples are too short or too few:**
+- Minimum: 3 samples OR 500 total words
+- If less than 500 words received: "These samples are too short to extract reliable voice patterns. Can you add 2-3 more — emails, Slack messages, or transcripts work great. The messier and more casual, the better."
+- Do NOT attempt voice extraction from under 500 words — the patterns won't be reliable
+
+**Best sources (in order of authenticity):**
+1. Casual Slack or email (highest — raw voice)
+2. Podcast or call transcript
+3. LinkedIn posts or articles
+4. Website copy (lowest — often edited to sound professional, not authentic)
+
+---
+
+## What NOT to Extract (Constraint Handling)
+
+Identify and exclude these false signals:
+
+- **Platform-specific tics** (LinkedIn line breaks, Twitter character-limit hacks)
+- **Typos and autocorrect errors** (not voice, just mistakes)
+- **Phrases borrowed from others** (quotes, retweets, things attributed to someone else)
+- **Unusually formal writing** (legal docs, press releases — not the authentic voice)
+
+Note in the voice guide: "Excluded X from extraction because [reason]."
+
+---
+
+## Quick Mode (`--quick`)
+
+For fast extractions:
+1. Read 3 samples
+2. Pull 10 signature phrases
+3. Note 3 things they'd never say
+4. One sentence describing their energy
+
+**Output:** Minimum viable voice guide — better than nothing, but note it's based on limited samples.
+
+**Expected output vs Full mode:**
+- Quick: ~15 phrases, 3 anti-patterns, 1-sentence energy description
+- Full: Complete profile with confidence calibration, phrase library, and validated sample sentences
+
+---
+
+## Full Mode Extraction Process
+
+### Step 1: Find Core Energy
+What role do they naturally play?
+- Teacher (breaks things down)
+- Challenger (pushes back on assumptions)
+- Cheerleader (builds confidence and momentum)
+- Straight-shooter (cuts through BS)
+
+What's the default energy?
 - Calm authority ("Here's what works")
-- High enthusiasm ("This is exciting, let me show you")
+- High enthusiasm ("This is exciting")
 - Understated confidence ("I've seen this a hundred times")
 
-**What do you actually care about?**
-I'll look for themes that repeat across your samples. The stuff you can't help but talk about.
+What do they genuinely care about? (Themes that repeat unprompted)
+
+### Step 2: Extract Signature Phrases
+
+**Transition phrases** — How do they shift topics?
+**Emphasis phrases** — How do they land a point?
+**Closers** — How do they wrap up?
+
+Pull specific examples from the samples for each category.
+
+### Step 3: Map Confidence Zones
+
+| Zone | Markers | Voice Treatment |
+|---|---|---|
+| Expert | Zero hedging, definitive statements | "Here's what works. Full stop." |
+| Experienced | "In my experience...", "What I've found..." | Still confident, just not absolute |
+| Learning | "I'm testing this...", "What I'm seeing..." | Curious, exploratory |
+
+**The calibration is what makes the voice feel real** — not every topic gets the same energy.
+
+### Step 4: Document Anti-Patterns
+
+Just as important as what they DO say is what they'd NEVER say.
+
+Identify:
+- Words that feel wrong
+- Phrases that make them cringe
+- Tones they avoid
+- Jargon they hate (even industry-standard)
+
+### Step 5: Validation Sentences
+
+Generate 2 sample sentences using the extracted voice profile:
+1. One that sounds like them
+2. One that doesn't (the "off-brand" version)
+
+Ask: "Does Version A actually sound like you when you're not overthinking it?"
+
+If no: "What specifically feels off? That's where we refine."
 
 ---
 
-### Step 2: Steal Your Phrases
+## Voice Guide Template
 
-This is where it gets specific. I'm hunting for:
-
-**Your transition phrases** — How do you shift topics?
-- "Here's the thing..."
-- "What I've learned is..."
-- "Let me put it this way..."
-
-**Your emphasis phrases** — How do you land a point?
-- "The reality is..."
-- "What that actually means..."
-- "This is the part people miss..."
-
-**Your closers** — How do you wrap up?
-- "That's the move."
-- "Start there."
-- "You've got this."
-
-These become the cheat codes for anyone (or any AI) writing as you.
-
----
-
-### Step 3: Map Your Confidence Zones
-
-Not every topic deserves the same energy. I'll figure out:
-
-**Where you're an expert** (write with full authority):
-- Zero hedging
-- "Here's what works" energy
-- Definitive statements
-
-**Where you're experienced but not the expert** (write with earned opinion):
-- "What I've found..."
-- "In my experience..."
-- Still confident, just not absolute
-
-**Where you're actively learning** (write with curiosity):
-- "What I'm seeing..."
-- "I'm testing this right now..."
-- Excited but exploratory
-
-This calibration is what makes the voice feel real, not like a one-note character.
-
----
-
-### Step 4: Document the Anti-Patterns
-
-Just as important as what you DO say is what you'd NEVER say.
-
-I'll identify:
-- Words that would feel wrong coming from you
-- Phrases that make you cringe
-- Tones you avoid
-- Jargon you hate (even industry-standard jargon)
-
-**Example from my own voice guide:**
-- Never use "synergy" or "leverage" as verbs
-- Avoid hedging words like "maybe" or "possibly"
-- Don't start sentences with "So," when writing (fine when talking)
-- Cut "I think" — just say the thing
-
----
-
-## What You Get Back
-
-A complete Voice Guide document:
-
-```
+```markdown
 # [Name]'s Voice Guide
 
 ## Who You Are
-- Core energy: [cheerleader/challenger/teacher/etc.]
+- Core energy: [cheerleader/challenger/teacher/straight-shooter]
 - Natural role: [how you show up]
-- Authority zones: [where you're the expert]
+- What you actually care about: [recurring themes]
 
-## Your Signature Phrases
+## Signature Phrases
 ### Transitions
-[The phrases you use to shift topics]
+[List with examples from actual samples]
 
 ### Emphasis
-[The phrases you use to land points]
+[List with examples]
 
 ### Closers
-[How you wrap things up]
+[List with examples]
 
 ## Confidence Calibration
 ### Full authority (no hedging):
-[Topics where you're the expert]
+[Topics] — voice: [example sentence]
 
 ### Earned perspective:
-[Topics where you have experience]
+[Topics] — voice: [example sentence]
 
 ### Active exploration:
-[Topics where you're learning]
+[Topics] — voice: [example sentence]
 
 ## What You Never Do
-[Words, phrases, tones to avoid]
+[Words, phrases, tones — sourced from samples]
 
-## Quick Examples
+## Validation Examples
 ### This sounds like you:
-[Example in your voice]
+"[Sample sentence in their voice]"
 
 ### This doesn't:
-[Same content, wrong voice]
+"[Same content, wrong voice — contrast is the lesson]"
+
+## Extraction Notes
+- Samples used: [number and types]
+- Excluded: [any patterns excluded and why]
+- Quick mode or full mode: [which]
 ```
 
 ---
 
-## How to Use the Voice Guide
+## Memory Write
 
-**For AI training:** Paste the Voice Guide into your system prompt. Every output gets filtered through your style.
+After completing voice extraction, save to file:
 
-**For ghostwriters:** Hand it over on day one. Cuts revision cycles in half.
+**Path:** `~/.claude/voice-[name].md` (or `voice-profiles/[name]-voice.md` in workspace)
 
-**For your team:** Now everyone knows what "on brand" actually sounds like.
-
-**For yourself:** When you're stuck, read it. It reminds you how you actually communicate when you're not overthinking it.
-
----
-
-## The 10-Minute Version
-
-Short on time? I can do a quick extraction:
-
-1. Read 3 samples fast
-2. Pull 10 signature phrases
-3. Note 3 things you'd never say
-4. One sentence describing your energy
-
-That's a minimum viable voice guide. Better than nothing by a mile.
+Also save to session context:
+```markdown
+## Voice Profile — [Name] — [Date]
+- Core energy: [label]
+- Key phrases: [top 5]
+- Anti-patterns: [top 3]
+- Last updated: [date]
+- File path: [path]
+```
 
 ---
 
-## Real Talk
+## Multi-Agent Handoff Format
 
-The best voice guides come from messy, authentic content. Not your polished website copy — the email you fired off at 11pm. Not the edited article — the podcast where you riffed for an hour.
+Pass to Scribe or content production agents:
 
-Give me the real stuff. I'll find the patterns.
-
----
-
-**Want a custom voice guide built for your business?**
-→ [Book a strategy call](https://brianrwagner.com)
+```yaml
+voice_profile_handoff:
+  name: "[person]"
+  energy: "[cheerleader/challenger/teacher/straight-shooter]"
+  signature_phrases:
+    transitions: ["phrase 1", "phrase 2"]
+    emphasis: ["phrase 1", "phrase 2"]
+    closers: ["phrase 1"]
+  anti_patterns: ["word/phrase to never use"]
+  confidence_zones:
+    expert: ["topic 1", "topic 2"]
+    experienced: ["topic 1"]
+    learning: ["topic 1"]
+  profile_path: "[file path]"
+  samples_count: [number]
+  mode: "quick | full"
+```

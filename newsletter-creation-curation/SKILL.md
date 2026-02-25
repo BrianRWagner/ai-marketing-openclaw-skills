@@ -1,7 +1,7 @@
 ---
 name: newsletter-creation-curation
 description: Industry-adaptive B2B newsletter creation with stage, role, and geography-aware
-  workflows
+  workflows. Use when someone needs to create, improve, or systematize a B2B newsletter.
 metadata:
   openclaw:
     emoji: ✉️
@@ -15,15 +15,39 @@ Use this skill to create B2B newsletters that match business context, not generi
 Deep strategic guidance is in `PLAYBOOK.md`.
 Use this file as the executable operating manual.
 
+## Autonomy Triggers
+
+Activate this skill when the user:
+- Asks "what should I write in my newsletter this week?"
+- Says "help me create a newsletter" or "I need to write my next issue"
+- Completes `content-idea-generator` — offer to turn ideas into a newsletter
+- Has a content strategy from `linkedin-authority-builder` — offer to cross-publish to newsletter
+- Mentions subscriber list, email marketing, or "my audience"
+
+Auto-suggest: "Want me to build this week's newsletter issue? Give me your context (industry, stage, goal) and I'll produce a publish-ready draft."
+
+---
+
+## Memory Read
+
+Before starting, check session context for:
+- Subscriber personas from prior newsletter sessions
+- Content themes and editorial calendar
+- Industry template selected previously (don't re-ask if already established)
+- `positioning-basics` output — ICP should match newsletter audience
+- `content-idea-generator` outputs — ideas to pull from
+
+---
+
 ## Quick Decision Tree (5 Dimensions)
 
-Answer these in order before writing anything.
+Answer these in order before writing anything:
 
 ### 1) Goal
 - `Lead Generation`: newsletter should drive pipeline and SQLs.
-- `Thought Leadership`: newsletter should build trust and category authority.
-- `Personal Brand`: newsletter should establish individual POV and visibility.
-- `Category Ownership`: newsletter should define market narrative at scale.
+- `Thought Leadership`: build trust and category authority.
+- `Personal Brand`: establish individual POV and visibility.
+- `Category Ownership`: define market narrative at scale.
 
 ### 2) Industry
 - `Sales Tech`: tactical, data-heavy, ROI-forward.
@@ -46,188 +70,165 @@ Answer these in order before writing anything.
 - `India-first`: IST timing, local examples/channels.
 - `US-first`: EST/PST timing, US benchmarks/channels.
 
-## Template Selector
+---
 
-Pick exactly one base template first:
-- Sales Tech: `templates/sales-tech-template.md`
-- HR Tech: `templates/hr-tech-template.md`
-- Fintech: `templates/fintech-template.md`
-- Operations Tech: `templates/ops-tech-template.md`
-
-Then adapt cadence and tone using Stage + Role + Geography.
-
-## Execution Workflow (Do This Every Time)
+## Execution Workflow
 
 ### Step 1: Assess Context
-Collect and confirm:
-- Product category and ICP.
-- Primary goal for the next 90 days.
-- Stage, role, approval constraints.
-- Geography and timezone.
-- Available production bandwidth (hours/week, team, budget).
+Output one-line strategy statement:
+> `For [ICP], we publish [cadence] to achieve [goal] with [format].`
 
-Output:
-- One-line strategy statement: `For [ICP], we publish [cadence] to achieve [goal] with [format].`
+### Step 2: Draft Issue
 
-### Step 2: Select and Adapt Template
-Actions:
-- Load one industry template from `templates/`.
-- Set cadence:
-  - Series A: weekly/bi-weekly (execution simplicity).
-  - Series B: weekly or bi-weekly (team process).
-  - Series C+: weekly with recurring pillars (media-quality).
-- Apply role constraints:
-  - Founder: direct POV is allowed.
-  - Employee: insert approval checkpoint before final draft.
-- Apply geography settings:
-  - India-first: schedule in IST and local references.
-  - US-first: schedule in EST/PST and US references.
-
-Output:
-- Final issue blueprint with section headings + target word count per section.
-
-### Step 3: Generate Content
-Use the blueprint to draft issue content.
-
-Required structure:
-- Subject line options (3)
-- Hook (problem + stakes)
-- Core insight (data, framework, or pattern)
-- Actionable playbook (steps/checklist)
-- CTA (reply, share, demo, resource)
+Required structure — every issue, every time:
+- **Subject line options (3)** — test A/B
+- **Hook** (problem + stakes — first 2 sentences must earn the read)
+- **Core insight** (data, framework, or pattern — the reason you sent this)
+- **Actionable playbook** (steps/checklist — what to do with the insight)
+- **CTA** (ONE measurable action: reply, share, demo, resource)
 
 Generation rules:
-- Prefer specific numbers, examples, and named scenarios.
-- Remove generic filler.
-- Keep one primary takeaway per issue.
-- Keep CTA singular and measurable.
+- Specific numbers and named examples > generic claims
+- Remove all generic filler phrases
+- One primary takeaway per issue
+- CTA is singular and measurable
 
-Output:
-- Draft issue in publish-ready markdown.
+### Step 3: Refine
 
-### Step 4: Refine and Ship
-Run this checklist:
-- `Clarity`: can a busy reader extract value in 60 seconds?
-- `Specificity`: does each section include concrete guidance or evidence?
-- `Relevance`: does tone match industry and role constraints?
-- `Compliance`: for fintech/employee-led, ensure legal/manager review step exists.
-- `Consistency`: voice aligns with prior issues.
+Run checklist:
+- `Clarity`: Can a busy reader extract value in 60 seconds?
+- `Specificity`: Does each section have concrete guidance?
+- `Relevance`: Tone matches industry and role?
+- `Compliance`: For fintech/employee-led, does legal/manager review step exist?
+- `Consistency`: Voice aligns with prior issues?
 
-Finalize:
-- Choose one subject line.
-- Add final send time.
-- Add amplification plan (LinkedIn + one secondary channel).
+### Step 4: Finalize
+- Choose one subject line
+- Add send time
+- Add amplification plan (LinkedIn post + one secondary channel)
 
-Output:
-- Final issue + distribution notes + KPI targets.
+---
+
+## Execution Output Template (Fill This In Every Issue)
+
+```markdown
+## Issue: [Newsletter Name] — [Issue #] — [Date]
+**Goal:** [Lead Gen / Thought Leadership / Personal Brand / Category]
+**Strategy:** For [ICP], we publish [cadence] to achieve [goal].
+
+---
+
+### Subject Line Options
+A) [Option 1 — curiosity/open loop]
+B) [Option 2 — specific + benefit]
+C) [Option 3 — contrarian/bold]
+**Recommended:** [A/B/C — why]
+
+---
+
+### Hook
+[Problem + stakes — 2-3 sentences]
+
+---
+
+### Core Insight
+[Data, framework, or pattern — the reason you sent this]
+
+---
+
+### Actionable Playbook
+1. [Step 1]
+2. [Step 2]
+3. [Step 3]
+
+---
+
+### CTA
+[ONE action — specific and measurable]
+
+---
+
+### Send Details
+- **Send time:** [Day, Time, Timezone]
+- **Amplification:** [LinkedIn post angle] + [secondary channel]
+- **KPI targets:** [Specific metrics for this issue's goal]
+```
+
+---
+
+## Multi-Agent Handoff Format
+
+Pass newsletter content to downstream agents (Scribe, social scheduler):
+
+```yaml
+newsletter_handoff:
+  issue_number: [number]
+  date: "[YYYY-MM-DD]"
+  goal: "lead_gen | thought_leadership | personal_brand | category"
+  industry: "sales_tech | hr_tech | fintech | ops_tech"
+  stage: "series_a | series_b | series_c_plus"
+  subject_line_chosen: "[text]"
+  hook: "[text]"
+  core_insight_summary: "[1 sentence]"
+  cta: "[text]"
+  send_time: "[Day Time Timezone]"
+  amplification:
+    linkedin_angle: "[post hook]"
+    secondary_channel: "[platform + angle]"
+  kpi_targets:
+    open_rate: "[target%]"
+    ctr: "[target%]"
+    primary_metric: "[SQLs / subscribers / replies]"
+  subscriber_persona_used: "[description]"
+```
+
+---
+
+## Memory Write
+
+After each issue, save to session context:
+
+```markdown
+## Newsletter Issue — [Date]
+- Issue #: [number]
+- Goal: [type]
+- Subject chosen: "[text]"
+- Core insight: "[1 sentence]"
+- CTA: "[text]"
+- Send time: [time]
+- KPI targets: [metrics]
+- Content themes for next issue: [notes]
+- Subscriber persona: [description]
+```
+
+---
 
 ## Role-Based Approval Workflow
 
-Use this enforcement logic before publishing:
-- Founder-led:
-  - No formal approval required.
-  - Optional peer review for quality.
-- VP/Director-led:
-  - Manager or leadership review required.
-  - High-impact claims should be validated.
-- PMM/Content-led:
-  - Brand + stakeholder review required.
-  - Keep documented source notes for claims.
-- Enterprise employee:
-  - PR/legal review required before distribution.
+- **Founder-led:** No formal approval required. Optional peer review.
+- **VP/Director-led:** Manager or leadership review required.
+- **PMM/Content-led:** Brand + stakeholder review required.
+- **Enterprise employee:** PR/legal review required before distribution.
 
-If unsure, default to stricter review.
+When in doubt, default to stricter review.
+
+---
 
 ## KPI Defaults by Goal
 
-- Lead Generation:
-  - Open rate, CTR, demo requests, SQL mentions in CRM.
-- Thought Leadership:
-  - Open rate trend, replies, shares, speaking invites, inbound references.
-- Personal Brand:
-  - Subscriber growth, profile visits, inbound opportunities.
-- Category Ownership:
-  - Share of voice, citations, partnerships, executive visibility.
+| Goal | Primary Metrics |
+|---|---|
+| Lead Generation | Open rate, CTR, demo requests, SQL tags |
+| Thought Leadership | Open rate trend, replies, shares, speaking invites |
+| Personal Brand | Subscriber growth, profile visits, inbound opps |
+| Category Ownership | Share of voice, citations, partnerships |
 
-## Playbook Map (Deep Dives)
+---
 
-Use these sections in `PLAYBOOK.md` when deeper strategy is needed:
-- Sales Tech strategy: `SECTION A`
-- HR Tech strategy: `SECTION B`
-- Fintech strategy: `SECTION C`
-- Operations Tech strategy: `SECTION D`
-- Role approvals and geography tactics: `CROSS-CUTTING: UNIVERSAL FRAMEWORKS`
-- Mistakes, prompts, tool matrix, quick-reference matrix: bottom sections of `PLAYBOOK.md`
+## Fictional Case Study
 
-## Why This vs Generic ChatGPT Prompting?
-
-This skill adds structured context control that generic prompting usually misses:
-- Matches content to `industry + stage + role + geography` before drafting.
-- Forces approval logic for employee-led and fintech scenarios.
-- Uses proven templates tied to B2B newsletter outcomes.
-- Produces repeatable workflows, not one-off writing outputs.
-- Keeps strategic depth in `PLAYBOOK.md` for escalation without bloating execution steps.
-
-## Fictional Case Study (Realistic)
-
-### Context
-- Company: `SignalPilot` (Sales Tech)
-- Stage: Series A, $4M ARR
-- Role: Founder-led
-- Market: US-first
-- Goal: 12 SQLs/month from newsletter in 6 months
-- Bandwidth: 4 hours/week, no designer
-
-### What They Did
-- Selected `templates/sales-tech-template.md`.
-- Published weekly on Tuesday 9 AM EST.
-- Issue mix:
-  - 50% data-backed sales observations
-  - 30% tactical playbooks
-  - 20% contrarian POV
-- Reused each issue for one LinkedIn post + one short thread.
-
-### Outcome (6 Months)
-- 1,350 subscribers.
-- Average 42% open rate, 8.1% CTR.
-- 14 monthly SQLs tagged as newsletter-influenced.
-- Sales team started using issues as pre-demo credibility assets.
-
-## Usage Examples
-
-### Example A: Founder, Sales Tech, Series A
-Prompt:
-```text
-Use newsletter-creation-curation.
-Context: Sales tech founder, Series A, US market, lead generation goal.
-Create next week's issue using the sales-tech template, with 3 subject lines,
-700-900 words, and a Tuesday 9 AM EST send plan.
-```
-
-### Example B: VP Marketing, HR Tech, Series B
-Prompt:
-```text
-Use newsletter-creation-curation.
-Context: HR tech VP Marketing, Series B, US-first, thought-leadership goal.
-Create a bi-weekly issue outline and full draft with approval checkpoints and
-source-backed claims only.
-```
-
-### Example C: PMM, Fintech, Series B, India
-Prompt:
-```text
-Use newsletter-creation-curation.
-Context: Fintech PMM, Series B, India-first, trust-building goal.
-Build issue draft with compliance-safe language, IST send timing, and
-manager/legal review checklist.
-```
-
-## Fast Start (Agent Checklist)
-
-1. Ask 5 decision-tree questions.
-2. Select one industry template from `templates/`.
-3. Produce issue blueprint (sections + word counts).
-4. Draft issue using the workflow.
-5. Apply role/compliance review.
-6. Finalize send-time, amplification, and KPI targets.
-7. If deeper strategy is needed, consult `PLAYBOOK.md`.
+**SignalPilot** (Sales Tech, Series A, US, Lead Gen goal):
+- Selected `sales-tech-template.md`
+- Weekly, Tuesday 9 AM EST
+- 50% data-backed observations / 30% tactical playbooks / 20% contrarian POV
+- Outcome in 6 months: 1,350 subscribers, 42% open rate, 14 monthly SQLs newsletter-attributed

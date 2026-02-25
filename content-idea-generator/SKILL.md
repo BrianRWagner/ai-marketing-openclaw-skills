@@ -2,7 +2,8 @@
 name: content-idea-generator
 description: Generate content ideas rooted in positioning. Use when someone needs
   "content ideas," "what should I post," "blog topics," "LinkedIn ideas," or is stuck
-  on what to create.
+  on what to create. Requires positioning context — run positioning-basics first if
+  missing.
 metadata:
   openclaw:
     emoji: 💡
@@ -11,112 +12,135 @@ homepage: https://brianrwagner.com
 
 # Content Idea Generator
 
-You are a content strategist with opinions. Content without positioning is noise. Before generating ideas, confirm positioning is clear. If not, run [[positioning-basics]] first.
+## Autonomy Triggers
 
-## The Reality Check
+Activate this skill when the user:
+- Says "I don't know what to post" or "I'm running out of content ideas"
+- Has just completed `positioning-basics` or `linkedin-authority-builder`
+- Mentions a recent win, story, or lesson that hasn't been turned into content yet
+- Asks "what should I write about this week?"
 
-Here's what I've learned across industries: Most content fails because people create what *they* want to say, not what their audience needs to hear. Your positioning tells you what to create. Everything else is random posts hoping for engagement.
+**Prerequisite check:** If no positioning statement exists in session context, suggest:
+> "Content without positioning is noise. Before generating ideas, can we nail your one-liner? Run `positioning-basics` first — it takes 10 minutes and unlocks better ideas."
 
-**Before anything:** Can you complete this sentence?
-> "I help [specific audience] achieve [specific outcome] through [your unique approach]."
-
-If not, stop. Go nail positioning first. I'll wait.
+If positioning IS available, load it before generating a single idea.
 
 ---
 
-## Content Frameworks That Actually Work
+## Memory Read
+
+Before starting, load from session context:
+- `positioning-basics` output — ICP, differentiator, one-liner (REQUIRED)
+- `linkedin-authority-builder` pillars — if a content strategy exists, generate within those pillars
+- `voice-extractor` output — ensure ideas match the user's authentic voice
+- Recent wins or proof points mentioned in prior sessions
+
+---
+
+## Mandatory Context Intake
+
+Ask these before generating:
+
+> 1. **Positioning statement:** "I help [audience] with [outcome] through [approach]." (Paste it or build it now.)
+> 2. **ICP specifics:** What are the top 3 frustrations your ideal customer has this week?
+> 3. **Recent wins or proof points:** Any client results, experiments, or lessons from the last 30 days?
+> 4. **Content formats available:** Are we generating for LinkedIn? Twitter? Newsletter? Short video? All of the above?
+
+Without these, ideas will be generic. Specific positioning + specific proof points = specific ideas that resonate.
+
+---
+
+## Freshness Check (Tool Call Required)
+
+For each content batch, run a freshness search:
+
+**Trigger:** `web_search('[Topic] trending [current month] [year]')`
+
+Example: `web_search('content marketing trends February 2026')`
+
+Use the results to:
+- Identify timely angles on evergreen topics
+- Spot what competitors are NOT covering (positioning opportunity)
+- Ground at least 1 idea per batch in something current
+
+---
+
+## Content Quality Filter
+
+Every generated idea must pass 3 tests before being delivered:
+
+1. **Specific?** — Does the idea have a concrete angle, or is it generic? ("How to use LinkedIn" → fails. "How to get inbound DMs from framework posts when you have <500 followers" → passes.)
+2. **Hook angle?** — Does the idea have an obvious first line that stops the scroll?
+3. **ICP pain connection?** — Does the idea address a real frustration of the specific ideal customer?
+
+Flag any idea that fails: "This idea is too generic for your positioning — here's a more specific angle."
+
+---
+
+## Content Frameworks
 
 ### 1. The Problem Call-Out
 Name the pain your audience won't admit publicly.
-
 **Template:** "The #1 mistake [audience] makes with [topic]"
-
-**Real Example:** "The #1 mistake solo consultants make with pricing: They charge for time instead of outcomes. I watched a brilliant strategist charge $150/hour while her client made $2M from her advice. Here's how to fix that..."
-
----
 
 ### 2. The "Here's What Works" Breakdown
 Teach a specific process you've actually used.
-
 **Template:** "How to [achieve outcome] without [common obstacle]"
-
-**Real Example:** "How to build authority on LinkedIn without posting daily. I grew from 2K to 15K followers posting 3x/week. The secret? Depth beats frequency. Here's my exact process..."
-
----
 
 ### 3. The Contrarian Take
 Challenge something everyone assumes is true. (Only if you genuinely believe it.)
-
 **Template:** "Stop [common advice]. Here's what actually works."
-
-**Real Example:** "Stop trying to go viral. Here's what actually works: One post that converts beats 1M views that don't. I've seen founders with 500 followers close $50K deals. Vanity metrics are a trap..."
-
----
 
 ### 4. The Behind-the-Curtain Story
 Show the messy reality, not the highlight reel.
-
 **Template:** "I [tried thing]. Here's what actually happened."
-
-**Real Example:** "I spent $10K on a rebrand that flopped. Here's what actually happened: I hired a fancy agency, got beautiful assets, and... crickets. Turns out my positioning was broken. No logo fixes that. What I learned..."
-
----
 
 ### 5. The Pattern Recognition
 Connect dots your audience hasn't connected yet.
-
 **Template:** "What [experience A] taught me about [topic B]"
-
-**Real Example:** "What coaching youth basketball taught me about managing executives: The best players aren't always the best leaders. I've seen this pattern in sports, healthcare, and tech. Here's how to spot it..."
-
----
 
 ### 6. The Resource Stack
 Curate genuinely useful tools (not affiliate link dumps).
-
 **Template:** "[Number] tools I actually use for [outcome]"
 
-**Real Example:** "5 tools I actually use to create a week of content in 2 hours: Descript for video cleanup, Claude for first drafts, Notion for the calendar, Typeshare for distribution, Shield for analytics. Here's my workflow..."
+---
+
+## Fluff Filter (What NOT to Create)
+
+❌ "Grateful for the journey" posts — nobody cares, show the work
+❌ Generic motivational quotes — add your specific take or skip it
+❌ "Thought leadership" with no actual thoughts
+❌ Engagement bait with no value ("Agree? Comment YES")
+❌ Content outside your positioning — stay in your lane
+
+**The test:** Would you engage with this if someone else posted it? No? Don't post it.
 
 ---
 
-## Content to AVOID (The Fluff Filter)
+## Multi-Agent Handoff Format
 
-**Don't create these.** They waste your time and bore your audience:
+Pass approved ideas to Scribe or content production agents:
 
-❌ **"Grateful for the journey" posts** — Nobody cares. Show the work.
-❌ **Generic motivational quotes** — Add your take or skip it.
-❌ **"Thought leadership" with no actual thoughts** — If you can't name a specific example, you don't have a take yet.
-❌ **Engagement bait with no value** — "Agree?" posts are lazy. Earn the engagement.
-❌ **Content you "should" create but don't care about** — Your apathy will show.
-❌ **Topics outside your positioning** — Stay in your lane or expand the lane first.
-
-**The test:** Would you read this if someone else posted it? No? Don't post it.
-
----
-
-## The Repurposing Multiplier
-
-Every strong piece becomes 3-5 pieces. Start with one meaty post, then extract:
-
-1. **Twitter thread** — Break into 5-7 key points
-2. **Quote graphic** — Pull the spiciest line
-3. **Short video** — 60-second version of the core insight  
-4. **Newsletter angle** — Expand with a personal story
-
-**Example:** That pricing post becomes a Twitter thread on "5 signs you're undercharging," a carousel on value-based pricing, and newsletter fodder. One idea. Four touchpoints. That's leverage.
-
----
-
-## Generating Ideas (The Quick Start)
-
-**If you're stuck, answer these five questions.** Each answer = at least one piece of content.
-
-1. What mistake do you see your audience make repeatedly?
-2. What did you learn the hard way that you wish someone told you?
-3. What question do clients/customers ask you most often?
-4. What's a hill you'll die on in your industry?
-5. What's something "everyone knows" that you think is wrong?
+```yaml
+content_idea_handoff:
+  positioning_used: "[one-liner]"
+  icp: "[description]"
+  batch_date: "[YYYY-MM-DD]"
+  quick_wins:
+    - idea: "[title/angle]"
+      hook: "[first line]"
+      platform: "[LinkedIn/Twitter/Newsletter]"
+      framework: "[which template]"
+      icp_pain: "[what frustration it addresses]"
+      quality_check: "passed"
+  authority_builders:
+    - idea: "[title/angle]"
+      hook: "[first line]"
+      platform: "[platform]"
+      research_needed: "[yes/no — what to find]"
+  freshness_source: "[what web search returned]"
+  downstream_agent: "scribe | linkedin-authority-builder"
+```
 
 ---
 
@@ -125,24 +149,33 @@ Every strong piece becomes 3-5 pieces. Start with one meaty post, then extract:
 Deliver ideas in two batches:
 
 ### Quick Wins (Post This Week)
-5 ideas ready to create now — low effort, high resonance
+5 ideas ready to create now — low effort, high resonance.
 
-### Authority Builders (This Month)  
-3 ideas that need research or depth — worth the investment
-
-For each idea, include:
-- **Hook** (First line that stops the scroll)
-- **Core insight** (The one thing they should remember)
+For each:
+- **Hook** (first line that stops the scroll)
+- **Core insight** (the one thing they should remember)
 - **Platform fit** (LinkedIn, Twitter, Newsletter, etc.)
+- **ICP pain addressed** (which frustration this speaks to)
+
+### Authority Builders (This Month)
+3 ideas that need research or depth — worth the investment.
+
+For each:
+- Hook, core insight, platform
+- **Research needed** (what to find before writing)
+- **Estimated production time**
 
 ---
 
-## Validation Before You Post
+## Memory Write
 
-Three questions:
+After delivering ideas, save to session context:
 
-1. **Does this connect to my positioning?** If not, skip it.
-2. **Is there a specific takeaway?** Vague = forgettable.
-3. **Would I engage with this if someone else posted it?** Be honest.
-
-Two out of three? Ship it. Zero? Back to the drawing board.
+```markdown
+## Content Ideas — [Date]
+- Positioning used: "[one-liner]"
+- Freshness search: "[query + key finding]"
+- Quick wins generated: [number]
+- Authority builders generated: [number]
+- Next idea session: [suggest date — 1-2 weeks out]
+```

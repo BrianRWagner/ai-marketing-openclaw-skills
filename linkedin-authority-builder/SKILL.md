@@ -2,7 +2,7 @@
 name: linkedin-authority-builder
 description: Build a LinkedIn content system for thought leadership. Use when someone
   needs to establish authority, attract inbound leads, or build a consistent content
-  presence. Covers positioning, content pillars, formats, and posting rhythm.
+  presence. Run linkedin-profile-optimizer first, then this skill for content strategy.
 metadata:
   openclaw:
     emoji: 💼
@@ -11,69 +11,66 @@ homepage: https://brianrwagner.com
 
 # LinkedIn Authority Builder
 
-Here's what most people get wrong about LinkedIn: they're trying to go viral.
+## Autonomy Triggers
 
-Viral doesn't pay your bills. Being remembered by the right 500 people when they need what you do — that pays your bills.
+Activate this skill when the user:
+- Says "I need to start posting on LinkedIn" or "how do I grow on LinkedIn"
+- Asks for help building a personal brand
+- Has completed `positioning-basics` — offer to build a content system around it
+- Has completed `linkedin-profile-optimizer` — the natural next step is a content strategy
+- Mentions wanting inbound leads, speaking gigs, or partnership opportunities
 
-This skill builds a content system that makes you impossible to forget for your target audience. Not through hacks. Through consistency and clear positioning.
+**Sequencing rule:** If `linkedin-profile-optimizer` hasn't been run yet, suggest running it first:
+> "Before we build a content system, let's make sure your profile is optimized to convert the traffic we're about to send it. Want me to run `linkedin-profile-optimizer` first? It takes 10 minutes."
 
 ---
 
-## Before We Build Anything
+## Memory Read
 
-I need to understand your situation:
+Before starting, check session context for:
+- `positioning-basics` output — use ICP, one-liner, and differentiator as content pillar inputs
+- `content-idea-generator` outputs — if ideas already exist, build the calendar around them
+- Prior LinkedIn strategy docs — compare and update, don't restart
+- `voice-extractor` output — apply voice profile to all post structures
 
-1. **What's your expertise?** What do you know cold?
-2. **Who needs to remember you?** Specific titles, company stages, industries.
-3. **What do you want from LinkedIn?** Leads? Job offers? Speaking gigs? Partnerships?
-4. **What's your unfair advantage?** Experience, perspective, or access that others don't have.
-5. **What are you doing now?** Posting? How often? What's working?
+---
 
-The strategy depends on the answers.
+## Mandatory 5-Question Intake
+
+> 1. **Current positioning:** What's your one-liner? Who do you help and with what outcome?
+> 2. **Target audience on LinkedIn:** Specific titles, company stages, or industries you want to reach
+> 3. **Posting history:** Have you posted before? What's worked, what hasn't?
+> 4. **Content goals:** Leads? Job offers? Speaking gigs? Partnerships? Audience growth?
+> 5. **Available time per week:** How many hours can you realistically put into LinkedIn?
+
+The strategy depends on honest answers to #3 and #5. Don't build a 5-post-per-week plan for someone with 2 hours.
 
 ---
 
 ## Step 1: Nail Your Positioning
 
-Before content, get clear on your angle.
+Before content, the one-liner must be locked.
 
-**The one-liner:**
-> I help [specific audience] with [specific outcome] through [unique approach].
+**Formula:** `I help [specific audience] with [specific outcome] through [unique approach].`
 
-**Example:**
-> I help growth-stage founders build marketing systems that scale — combining 15 years of strategy with AI-powered execution.
+**Example:** `I help growth-stage founders build marketing systems that scale — combining 15 years of strategy with AI-powered execution.`
 
-If you can't say it in one sentence, your content will be unfocused.
+If they can't say it in one sentence, content will be unfocused. Use `positioning-basics` output if available.
 
-**Your headline formula:**
+**LinkedIn headline formula:**
 ```
 [Role] | [What you do for who OR tagline]
 ```
 
-**Examples:**
-- "AI Marketing Architect | I build your AI marketing system. Then I run it."
-- "Former Nike CMO → Now helping founders avoid the branding mistakes I made"
-
-The headline is prime real estate. Don't waste it on your job title.
-
 ---
 
-## Step 2: Pick Your Content Pillars
+## Step 2: Pick Content Pillars (3-5 Topics)
 
-These are the 3-5 topics you'll own. Everything you post should fit into one of these buckets.
-
-**Good pillars:**
+Every post must fit a pillar. Pillars must pass this test:
 - You have genuine expertise (not just interest)
 - Your target audience cares about it
 - You can produce content on it consistently
-- It connects to what you sell
-
-**Example pillars:**
-1. AI-powered marketing (what I sell)
-2. Founder marketing lessons (what I've learned)
-3. Brand positioning (my expertise)
-4. Behind-the-scenes building (makes me human)
-5. Hot takes on marketing trends (keeps it interesting)
+- It connects to what you sell or want to be known for
 
 **The ratio:**
 - 70% core expertise (builds authority)
@@ -82,170 +79,145 @@ These are the 3-5 topics you'll own. Everything you post should fit into one of 
 
 ---
 
-## Step 3: Know Your Formats
+## Step 3: Format Mix
 
-Different formats for different goals:
-
-| Format | Good For | Engagement |
-|--------|----------|------------|
+| Format | Best For | Engagement |
+|---|---|---|
 | Story | Connection | High |
 | Framework/List | Authority | High |
 | Hot take | Reach | Variable |
 | Case study | Proof | Medium |
 | Behind-the-scenes | Trust | Medium |
 
-**The winning mix:**
-- 2-3 frameworks per week (authority)
-- 1-2 stories per week (connection)
-- 1 case study or proof point per week (credibility)
+**Winning weekly mix:**
+- 2-3 frameworks (authority)
+- 1-2 stories (connection)
+- 1 proof point (credibility)
 
 ---
 
-## Step 4: Master the Hook
+## Step 4: Hook Mastery
 
-The first line determines if anyone reads the rest. Make it count.
+The first line determines everything. Make it count.
 
 **Hooks that work:**
-
-> "Most founders get [topic] wrong. Here's why:"
-
-> "I spent 15 years learning this the hard way:"
-
+> "Most [audience] get [topic] wrong. Here's why:"
+> "I spent [X years] learning this the hard way:"
 > "[Counterintuitive statement that makes them stop scrolling]"
 
-> "The best [X] I know all do this one thing:"
-
-**Hook principles:**
-- Specific beats vague
-- Numbers add credibility
-- Tension creates curiosity
-- Punchline first, context second
+**Hook principles:** Specific > vague. Numbers add credibility. Tension creates curiosity.
 
 ---
 
-## Step 5: The Post Structures
+## Step 5: Post Templates
 
-### The Story Post
+### Story Post
 ```
 [Hook — the moment or realization]
-
 [Setup — quick context]
-
 [Tension — what was hard or went wrong]
-
 [Turn — the insight]
-
 [Lesson — the takeaway]
-
 [Question — drives engagement]
 ```
 
-### The Framework Post
+### Framework Post
 ```
 [Hook — bold claim or problem]
-
 [Why this matters — 1-2 sentences]
-
 [The X-step framework:]
 1. [Step + brief explanation]
 2. [Step + brief explanation]
 3. [Step + brief explanation]
-
-[Key insight or summary]
-
+[Key insight]
 [CTA or question]
 ```
 
-### The Hot Take
+### Hot Take
 ```
 [Controversial statement]
-
 [Your reasoning — 2-3 sentences]
-
 [The nuance people miss]
-
 [What to do instead]
-
 [Question to drive comments]
 ```
 
 ---
 
-## Step 6: Set Your Rhythm
+## Step 6: Content Calendar Output
 
-**Minimum viable presence:**
-- 3x per week
-- Same days/times
-- At least 2 posts showing expertise
+Always deliver a real calendar with actual dates, not just a schedule template:
 
-**If you want growth:**
-- 5x per week (weekdays)
-- Active commenting (20-30 min/day)
-- 1 long-form article per month
+| Date | Day | Pillar | Format | Hook (first line) |
+|---|---|---|---|---|
+| [Date] | Monday | [Pillar] | Framework | "[First line]" |
+| [Date] | Wednesday | [Pillar] | Story | "[First line]" |
+| [Date] | Friday | [Pillar] | Hot Take | "[First line]" |
 
-**Best times (test for yourself):**
-- Tuesday-Thursday mornings (7-9am)
-- Tuesday-Thursday lunch (12-1pm)
-- Avoid weekends for B2B
+Fill in 4 weeks of actual dates. Generic "Monday/Wednesday/Friday" templates are not enough.
 
 ---
 
-## Step 7: Engage Like a Human
+## Step 7: 30-Day Iteration Loop
 
-Posting is half the game. Engaging is the other half.
+After 30 days, review performance:
 
-**Comment strategy:**
-- 5-10 thoughtful comments per day on posts from your target audience
-- Add value, don't just say "Great post!"
-- Share a relevant experience or insight
-- Ask a follow-up question
+> "Which posts got the most comments? What pillar did they fall under?
+> Which posts got the most impressions? Were they frameworks or stories?
+> Which posts led to DMs or profile views?"
 
-**Comments that work:**
-- "This is exactly what I saw at [company]. We also found that..."
-- "Interesting take. What about the case where [alternative scenario]?"
-- "Adding to this: [your framework or step they didn't mention]"
+**Adjust pillar weights based on data.** If case study posts consistently outperform frameworks, shift the ratio.
 
 ---
 
-## What You Get Back
+## Multi-Agent Handoff Format
 
-A complete LinkedIn strategy doc:
+Pass to `content-idea-generator` or Scribe for ongoing idea generation:
 
-```
-## Your Positioning
-- Headline: [optimized]
-- One-liner: [what you do for who]
-
-## Content Pillars
-1. [Pillar + what you'll cover]
-2. [Pillar + what you'll cover]
-3. [Pillar + what you'll cover]
-
-## Weekly Schedule
-- [Day]: [Format + Pillar]
-- [Day]: [Format + Pillar]
-- [Day]: [Format + Pillar]
-
-## First 5 Post Ideas
-1. [Hook + brief description]
-2. [Hook + brief description]
-3. [Hook + brief description]
-4. [Hook + brief description]
-5. [Hook + brief description]
-
-## Engagement Plan
-- Who to engage with
-- How much time daily
-- What kinds of comments
+```yaml
+linkedin_strategy_handoff:
+  one_liner: "[text]"
+  headline: "[LinkedIn headline]"
+  pillars:
+    - name: "[pillar 1]"
+      ratio: "30%"
+    - name: "[pillar 2]"
+      ratio: "25%"
+  posting_rhythm: "[X times/week]"
+  best_times: "[e.g., Tue/Thu 8am EST]"
+  format_mix:
+    frameworks: "[X/week]"
+    stories: "[X/week]"
+    proof_points: "[X/week]"
+  calendar_path: "strategy/linkedin-[YYYY-MM-DD].md"
+  review_date: "[30 days from now]"
+  cross_reference: ["content-idea-generator", "voice-extractor"]
 ```
 
 ---
 
-## What Not to Do
+## Memory Write
 
-❌ Posting only about yourself and your company
-❌ Inspirational quotes with no substance
-❌ Engagement bait ("Comment YES if you agree!")
-❌ Posting once then disappearing for 3 weeks
-❌ Only broadcasting, never engaging
-❌ Walls of text with no formatting
+Save completed strategy to file and session context:
+
+**File path:** `strategy/linkedin-[YYYY-MM-DD].md`
+
+```markdown
+## LinkedIn Strategy — [Date]
+- One-liner: "[text]"
+- Target audience: "[description]"
+- Pillars: [list]
+- Rhythm: [X times/week]
+- First 5 post hooks: [list]
+- Calendar: [link or embedded]
+- Review date: [30 days out]
+- Goals: [leads / brand / speaking]
+```
+
+---
+
+## Cross-References
+
+- Run `linkedin-profile-optimizer` FIRST to ensure profile converts incoming traffic
+- Use `content-idea-generator` for ongoing idea generation tied to these pillars
+- Use `voice-extractor` to ensure all posts sound like the user, not generic AI
