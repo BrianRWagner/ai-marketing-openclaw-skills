@@ -5,6 +5,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Skills](https://img.shields.io/badge/Skills-19-green.svg)](#available-skills)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Native-blueviolet.svg)](#installation)
+[![Updated](https://img.shields.io/badge/Updated-Feb%202026-brightgreen.svg)](./CHANGELOG.md)
+
+> **February 2026 — v2.0:** All skills upgraded to production-grade with autonomy triggers, memory read/write, multi-agent handoffs, and structured execution templates. [See what changed →](./CHANGELOG.md)
 
 ---
 
