@@ -120,3 +120,17 @@ MIT — Use freely. Attribution appreciated.
 ---
 
 *Marketing frameworks that OpenClaw actually executes.* 🔱
+
+## 💎 Premium Skills (Claw Mart)
+
+Want the full autonomous versions? Premium skills include memory architecture, autonomy triggers, and multi-agent handoffs.
+
+→ [Browse Premium Skills on Claw Mart](https://www.shopclawmart.com)
+
+| Skill | Price |
+|-------|-------|
+| [Content Pipeline System](https://www.shopclawmart.com/listings/content-pipeline-system-93c7ed4e) | $19 |
+| [Social Engagement Scanner](https://www.shopclawmart.com/listings/social-engagement-scanner-4ed09919) | $19 |
+| [Multi-Agent Queue Orchestrator](https://www.shopclawmart.com/listings/multi-agent-queue-orchestrator-a99f2965) | $19 |
+| [Notion to Obsidian Vault Sync](https://www.shopclawmart.com/listings/notion-to-obsidian-vault-sync-cfe1f50e) | $9 |
+| [Autonomous Ops Stack (bundle)](https://www.shopclawmart.com/listings/autonomous-ops-stack-14a5b532) | $44 |
