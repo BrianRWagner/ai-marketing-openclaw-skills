@@ -1,3 +1,35 @@
+## [2.0.1] — February 28, 2026
+
+### What Changed
+3-layer architecture refactor across all free skills + new Meeting Prep skill.
+
+### Why
+Skills audit (Feb 28) found 8 skills invisible to the trigger system (missing front matter), and the 3 highest-traffic skills bloated at 855–1,127 lines. Context window cost was too high.
+
+### What's New
+- **Meeting Prep skill** — pre-call prep brief with participant research, vault context pull, and question generation. Fires before WRS, sales, strategy, and partnership calls.
+
+### Front Matter Fixed (was invisible to trigger system)
+- `daily-briefing-builder` — added name + description YAML
+- `tweet-draft-reviewer` — added name + description YAML  
+- `vault-cleanup-auditor` — added name + description YAML
+
+### Skills Added (new to repo)
+- `email-sequence` — trimmed from 1,127 to 107 lines. Sequence templates moved to /references/sequences/
+- `social-content` — trimmed from 855 to 121 lines. Platform guides moved to /references/platforms/
+- `marketing-ideas` — trimmed from 570 to 104 lines. All 140 ideas moved to /references/ideas-library.md
+- `pricing-strategy` — trimmed from 710 to 110 lines. Research methods + tier templates moved to /references/
+- `ab-test-setup` — trimmed from 508 to 111 lines. Statistical tables + checklists moved to /references/
+- `seo-audit` — trimmed from 384 to 95 lines. Technical checklist + audit template moved to /references/
+
+### Architecture
+All skills now follow the 3-layer pattern:
+- Layer 1: YAML front matter (trigger label, ~50 tokens)
+- Layer 2: Lean SKILL.md (routing, steps, I/O, ~100-150 lines)
+- Layer 3: /references/ folder (heavy content only when needed)
+
+---
+
 # Changelog
 
 All notable changes to the AI Marketing Skills for OpenClaw library.

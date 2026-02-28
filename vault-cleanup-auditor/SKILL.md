@@ -1,3 +1,7 @@
+---
+name: vault-cleanup-auditor
+description: Audit an Obsidian vault for stale drafts, empty folders, duplicate filenames, and incomplete files. Saves a dated report. Use when user says "clean up vault," "audit vault," "vault is messy," or "find orphan files."
+---
 # Vault Cleanup Auditor
 
 **Version:** 2.0.0  

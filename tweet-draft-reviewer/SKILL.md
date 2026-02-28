@@ -1,3 +1,7 @@
+---
+name: tweet-draft-reviewer
+description: Review a tweet draft against 8 voice rules. Score 1-10, rule-by-rule breakdown, rewrite if score below 7. Use when user says "review this tweet," "check this draft," "does this tweet sound good," or pastes a tweet for feedback.
+---
 # Tweet Draft Reviewer
 
 **Version:** 2.0.0  
