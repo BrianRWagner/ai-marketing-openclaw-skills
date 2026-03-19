@@ -1,83 +1,67 @@
 ---
-name: social-gen
-description: Generate social media posts for different platforms. Use when sharing content.
+name: social-card-gen
+description: Generate platform-specific social post variants (Twitter, LinkedIn, Reddit) from one source input using a local Node.js script with no API dependency.
 ---
 
-# Social Generator
+# Social Card Generator Skill
 
-You wrote something great. Now you need to share it on Twitter, LinkedIn, and Reddit. Each platform wants different formats. This handles that.
+Use this skill when a user needs one source message transformed into platform-ready social copy for Twitter, LinkedIn, and Reddit.
 
-**One command. Zero config. Just works.**
+## What it does
 
-## Quick Start
+- Converts one source input into 3 platform variants.
+- Enforces platform limits:
+  - Twitter: 280 chars
+  - LinkedIn: 3000 chars
+  - Reddit: no hard limit in this tool
+- Applies platform style:
+  - Twitter: punchy + compact hashtags
+  - LinkedIn: professional + business framing
+  - Reddit: authentic + discussion-oriented
+- Runs entirely offline for text/file workflows (no API required).
 
-```bash
-npx ai-social README.md --platform twitter
-```
+## Files
 
-## What It Does
+- `generate.js`: CLI generator.
+- `templates.js`: platform rules, tone guidance, hashtag strategy, and CTA formats.
+- `examples/`: sample input and output.
 
-- Reads your content and adapts it per platform
-- Twitter gets short and punchy
-- LinkedIn gets professional
-- Reddit gets genuine and non-promotional
-
-## Usage Examples
-
-```bash
-# Twitter post
-npx ai-social README.md --platform twitter
-
-# LinkedIn post
-npx ai-social blog-post.md --platform linkedin
-
-# All platforms
-npx ai-social announcement.md --platform all
-```
-
-## Best Practices
-
-- **Know your audience** - each platform has different expectations
-- **Don't cross-post identical content** - people notice
-- **Engage don't broadcast** - social is conversation
-- **Time it right** - different platforms peak at different times
-
-## When to Use This
-
-- Launching a project
-- Sharing blog posts
-- Announcing features
-- Building audience
-
-## Part of the LXGIC Dev Toolkit
-
-This is one of 110+ free developer tools built by LXGIC Studios. No paywalls, no sign-ups, no API keys on free tiers. Just tools that work.
-
-**Find more:**
-- GitHub: https://github.com/LXGIC-Studios
-- Twitter: https://x.com/lxgicstudios
-- Substack: https://lxgicstudios.substack.com
-- Website: https://lxgicstudios.com
-
-## Requirements
-
-No install needed. Just run with npx. Node.js 18+ recommended. Needs OPENAI_API_KEY environment variable.
+## Usage
 
 ```bash
-npx ai-social --help
+npm install
+
+# text input
+node generate.js --text "We reduced onboarding time by 35% with a checklist." --stdout
+
+# file input
+node generate.js --file examples/input-example.md --outdir examples
+
+# URL input (when network is available)
+node generate.js --url https://example.com/post --platforms twitter,linkedin --stdout
 ```
 
-## How It Works
+## Why this vs ChatGPT?
 
-Reads your content, understands the key message, and rewrites it for each platform. Twitter gets hashtags and brevity. LinkedIn gets line breaks and CTAs. Reddit gets genuine, non-salesy language.
+- Deterministic output shape: same rules every run.
+- Zero prompt iteration for routine adaptation.
+- Works without external AI APIs.
+- Easy to automate in CI or content pipelines.
 
-## License
+## Before / After
 
-MIT. Free forever. Use it however you want.
+Before (single source):
 
----
+```text
+We shipped a new onboarding flow that cut setup time and improved week-1 activation.
+```
 
-**Built by LXGIC Studios**
+After (platform-ready):
 
-- GitHub: [github.com/lxgicstudios/social-card-gen](https://github.com/lxgicstudios/social-card-gen)
-- Twitter: [@lxgicstudios](https://x.com/lxgicstudios)
+- Twitter: short hook, concise body, tight hashtags, direct CTA.
+- LinkedIn: professional framing with practical outcome and discussion CTA.
+- Reddit: conversational framing with an open-ended question.
+
+## Case study (real workflow)
+
+A two-person SaaS team publishes one product update weekly. They previously rewrote each update manually for Twitter, LinkedIn, and Reddit (about 20-30 minutes total). With this skill they write one source update, run `node generate.js --file update.md --outdir posts`, and review 3 drafts in under 5 minutes before publishing.
